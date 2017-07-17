@@ -11,7 +11,6 @@ for week=1:53
 end
 NLC = sort(table2array(RawData.nativeLoad1(:,2)),'descend');
 hours = table2array(RawData.nativeLoad1(:,1));
-figure;
 plot(hours,NLC);
 hold on;
 title('Net Load Curve for the Load on ERCOT for 2016');
@@ -22,12 +21,11 @@ hold off;
 
 
 %Approximate Net Load Curve
-NLCapproxw17 = (RawLoadData(168*16:168*17,1));
-NLCapproxw31 = (RawLoadData(168*30:168*31,1));
-NLCapproxw37 = (RawLoadData(168*36:168*37,1));
-NLCapproxw46 = (RawLoadData(168*46:168*47,1));
+NLCapproxw17 = 13*((RawLoadData((168*16:168*17,1))));
+NLCapproxw31 = 13*((RawLoadData((168*30:168*31,1))));
+NLCapproxw37 = 13*((RawLoadData((168*36:168*37,1))));
+NLCapproxw46 = 13*((RawLoadData((168*45:168:47,1))));
 
-NLCApprox = [NLCapproxw17; NLCapproxw31 ;NLCapproxw37 ;NLCapproxw46];
-figure;
-plot(sort(NLCApprox,'descend'));
+NLCApprox = [NLCapproxw17 NLCapproxw31 NLCapproxw37 NLCapproxw46];
+plot(NLCAApprox);
 
